@@ -10,4 +10,7 @@ class Event < ActiveRecord::Base
     where("starts_at > ?", Time.now)
   end
 
+  def self.search(name)
+    where("name ILIKE ?", "%#{name}%")
+  end
 end
