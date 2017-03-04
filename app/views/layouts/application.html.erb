@@ -11,14 +11,34 @@
   <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
     <a class="navbar-brand" href="<%= root_path %>">Coder Ticket</a>
     <ul class="nav navbar-nav">
+      <div class='row'>
+        <div class='col'>
       <li class="nav-item">
-        <a class="nav-link" href="#">Log In</a>
+        <a class="nav-link" href="/signin">Log In</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Sign Up</a>
+    </div>
+    <div class='col'>
+      <li class="nav-item col">
+        <a class="nav-link" href="/signup" >Sign Up <%current_user%></a>
       </li>
+    </div>
+    <div class='col'>
+      <% if !current_user.nil? %>
+        <li class="nav-item col">
+          <a class="nav-link" href="/signout" >Sign Out</a>
+        </li class="nav-item col">
+        </div>
+        <div class='col-4'>
+        </div>
+        <div class='col'>
+        <li class="nav-item">
+            <a class="nav-link" ><%= "Hello #{current_user.name}" %></a>
+        </li>
+      </div>
+      <% end %>
+    </div>
     </ul>
-  </nav>  
+  </nav>
 
 <%= yield %>
 

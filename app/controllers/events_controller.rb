@@ -1,9 +1,6 @@
 class EventsController < ApplicationController
   def index
-    if params[:search]
-      @events = Event.search(params[:search])
-    end
-    @events = @events.upcoming
+    @events = Event.search(params[:search])
   end
 
   def show

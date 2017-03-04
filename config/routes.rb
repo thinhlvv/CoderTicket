@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
-  root 'events#index'
+  get 'def/create'
 
+  root 'events#index'
+  post '/signup' => 'users#create'
+  get '/signup' => 'users#signup'
+  get '/signout' => 'sessions#destroy'
+  post '/signin' => 'sessions#create'
+  get '/signin' => 'sessions#signin'
+
+  resources :users
+  resources :sessions
   resources :events do
     resources :tickets
   end
