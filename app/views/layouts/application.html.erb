@@ -34,7 +34,10 @@
     </ul>
   </nav>
 
-<%= yield %>
+  <div>
+    <%= flash_messages %>
+    <%= yield %>
+  </div>
 
 </body>
 </html>

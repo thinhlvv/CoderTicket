@@ -17,7 +17,10 @@ Rails.application.routes.draw do
   resources :venues
   resources :events do
     collection do
-      get 'mine'
+      get 'mine' => 'events#mine'
+    end
+    member do
+      get 'publish' => 'events#publish'
     end
     resources :tickets
   end

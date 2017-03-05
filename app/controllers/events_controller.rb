@@ -22,7 +22,7 @@ class EventsController < ApplicationController
     end
 
     flash[:success] = "Create event successfully!"
-    redirect_to root_path
+    redirect_to event_tickets_path
   end
 
   def new
@@ -41,6 +41,16 @@ class EventsController < ApplicationController
     @regions = Region.all
     @categories = Category.all
     @venues = Venue.all
+  end
+
+  def publish
+    @event = Event.find(params[:id])
+    if @event.ticket_types.nil?
+      @event.update_attribute(:published_at, Time.now)
+    else
+      flash[:error] = "You have to add at least 1 ticket type."
+    end
+    redirect_to mine_events_path
   end
 
   private

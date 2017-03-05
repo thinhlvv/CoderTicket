@@ -7,15 +7,15 @@ class Event < ActiveRecord::Base
   validates_presence_of :extended_html_description, :venue, :category, :starts_at
   validates_uniqueness_of :name, uniqueness: {scope: [:venue, :starts_at]}
 
-  # def self.upcoming
-  #   where("starts_at > ?", Time.now)
-  # end
+  def self.published?
+    where.not(published_at: nil)
+  end
 
   def self.search(name)
     if name
-      self.where("name ILIKE ? AND starts_at > ?", "%#{name}%", Time.now)
+      self.where("name ILIKE ? AND starts_at > ? AND published_at IS NOT NULL", "%#{name}%", Time.now)
     else
-      where("starts_at > ?", Time.now)
+      where("starts_at > ? AND published_at IS NOT NULL", Time.now)
     end
   end
 end

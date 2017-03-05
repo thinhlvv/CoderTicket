@@ -1,0 +1,41 @@
+<div class='container'>
+
+<h1 class='text-center' style='padding-top:70px;'> Create Tickets </h1>
+<div class='row'>
+  <div class='col'>
+  </div>
+  <div class='col-6'>
+    <%=form_for(@ticket_type,url: event_tickets_path) do |f|%>
+    <% if @ticket_type.errors.size > 0 %>
+      <div class='alert alert-danger'>
+        <%= @ticket_type.errors.full_messages.to_sentence %>
+      </div>
+    <% end %>
+    <div class="row">
+      <div class='col'>
+      </div>
+      <div class="col-md-1">
+        <div class="field">
+          <%= f.label :name, required: true %>
+          <%= f.text_field :name %>
+        </div>
+        <div class="field">
+          <%= f.label :price %>
+          <%= f.text_field :price %>
+        </div>
+        <div class="field">
+          <%= f.label :name, 'Max Quantity' %>
+          <%= f.text_field :max_quantity %>
+        </div>
+        <div class="action">
+          <%= f.submit "Submit", class:"btn btn-warning" %>
+        </div>
+      </div>
+      <div class='col'>
+      </div>
+    <%end%>
+  </div>
+  <div class='col'>
+  </div>
+</div>
+</div>
