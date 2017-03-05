@@ -12,17 +12,18 @@ class EventsController < ApplicationController
     new_event.name = params[:name]
     new_event.category_id = params[:category_id]
     new_event.venue_id = params[:venue_id]
-    new_event.hero_image_url = params[:image_url]
+    new_event.hero_image_url = params[:picture_url]
     new_event.starts_at = Time.strptime(params[:start_date], "%m/%d/%Y %H:%M %p")
     new_event.ends_at = Time.strptime(params[:end_date], "%m/%d/%Y %H:%M %p")
     new_event.extended_html_description = params[:content]
+    new_event.user_id = current_user.id
     if !new_event.save!
       flash[:error] = "Error occur when adding new event."
       return
     end
 
     flash[:success] = "Create event successfully!"
-    redirect_to event_tickets_path
+    redirect_to event_tickets_path(new_event.id)
   end
 
   def new

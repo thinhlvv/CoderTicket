@@ -8,10 +8,10 @@ class TicketsController < ApplicationController
     @ticket_type.event_id = params[:event_id]
     if @ticket_type.save
       flash.now[:error] = "Created tickets."
-      # redirect_to event_tickets_path
     else
       flash.now[:error] = @ticket_type.errors.full_messages.to_sentence
     end
+    redirect_to mine_events_path
   end
 
   def index
