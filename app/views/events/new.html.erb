@@ -50,22 +50,21 @@
       </p>
       <p class="name">
         <div class="form-group">
-          <select class="form-control" id="exampleSelect1">
+          <select name='region_id' class="form-control" id="exampleSelect1" required>
             <% @regions.each do |region| %>
-            <option name='<%= region.id %>' ><%= region.name %></option>
+            <option value='<%= region.id %>' ><%= region.name %></option>
             <% end %>
           </select>
         </div>
       </p>
       <h2> Categories </h2>
-      <p>
-        <div class='name'>
-        <select class="form-control" id="exampleSelect1">
-          <% @categories.each do |category| %>
-          <option name='<%= category.id %>'><%= category.name %></option>
-          <% end %>
-        </select>
-
+      <p class="name">
+        <div class="form-group">
+          <select name='category_id' class="form-control" id="exampleSelect1" required>
+            <% @categories.each do |category| %>
+            <option value='<%= category.id %>' ><%= category.name %></option>
+            <% end %>
+          </select>
         </div>
       </p>
 
