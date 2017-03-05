@@ -8,11 +8,14 @@ class EventsController < ApplicationController
   end
 
   def create
-
+    p params
+    redirect_to root_path
   end
 
   def new
     @event = Event.new()
+    @regions = Region.all
+    @categories = Category.all
   end
 
   private
