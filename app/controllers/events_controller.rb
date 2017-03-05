@@ -46,7 +46,7 @@ class EventsController < ApplicationController
 
   def publish
     @event = Event.find(params[:id])
-    if @event.ticket_types.nil?
+    if !@event.ticket_types.nil?
       @event.update_attribute(:published_at, Time.now)
     else
       flash[:error] = "You have to add at least 1 ticket type."
@@ -56,7 +56,5 @@ class EventsController < ApplicationController
 
   private
 
-    def event_params
-      params.require(:event).permit(:start_at, :end_at, :venue_id, :hero_image_url, :category_id, :name)
-    end
+
 end
