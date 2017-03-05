@@ -22,6 +22,11 @@
         <%= link_to new_event_ticket_path(@event) do %>
           <button class='btn btn-lg btn-block btn-danger'> BOOK NOW </button>
         <% end %>
+        <% if @event.user_id == current_user.id %>
+        <%= link_to edit_event_path(@event) do %>
+          <button class='btn btn-lg btn-block btn-danger'> EDIT </button>
+        <% end %>
+        <% end %>
       </div>
     </div>
     <div class="col-md-9 event-content">
@@ -31,11 +36,11 @@
         <div class="pull-left">
           <%= fa_icon 'clock-o' %>
         </div>
-        <div class="time-details"> 
-          <%= @event.starts_at.strftime('%A, %d %b %Y %l:%M %p') %> 
+        <div class="time-details">
+          <%= @event.starts_at.strftime('%A, %d %b %Y %l:%M %p') %>
         </div>
 
-        
+
 
         <div class="pull-left">
           <%= fa_icon 'map-marker' %>
@@ -53,7 +58,7 @@
           <%= @event.extended_html_description.html_safe %>
         </div>
 
-      </div>  
+      </div>
     </div>
   </div>
 </div>

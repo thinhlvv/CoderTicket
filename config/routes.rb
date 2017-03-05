@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   resources :sessions
   resources :venues
   resources :events do
+    collection do
+      get 'mine'
+    end
     resources :tickets
   end
   # The priority is based upon order of creation: first created -> highest priority.

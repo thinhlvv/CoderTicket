@@ -46,11 +46,11 @@ The person with best test coverage will win a small present from the instructor 
         * See [Add More RESTful Actions](http://guides.rubyonrails.org/routing.html#adding-more-restful-actions) to add a `publish` POST action (member type)
         * Write a test to make sure only an event creator can publish an event
 * [ ] Users can create ticket types for that event.
-    * **HINT**: make sure you understand what a ticket tpe is. Ask if not clear.
-* [ ] Users can create venues.
+    * **HINT**: make sure you understand what a ticket type is. Ask if not clear.
+* [x] Users can create venues.
 * [ ] An event must have at least one `ticket_type` defined before it can be published.
     * **HINT**: add `Event#have_enough_ticket_types?` (and test it)
-* [ ] User can see a list of events he or she has created.
+* [x] User can see a list of events he or she has created.
     * Suggestions
         * You can use `/events/mine` [collection routes](http://guides.rubyonrails.org/routing.html#adding-more-restful-actions)
 * [ ] Users can edit their event after creation. But only the user who created the event can edit the event.

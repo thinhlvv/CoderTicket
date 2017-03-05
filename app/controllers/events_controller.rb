@@ -32,6 +32,17 @@ class EventsController < ApplicationController
     @venues = Venue.all
   end
 
+  def mine
+    @events = Event.where(user_id: current_user.id).all
+  end
+
+  def edit
+    @event = Event.find(params[:id])
+    @regions = Region.all
+    @categories = Category.all
+    @venues = Venue.all
+  end
+
   private
 
     def event_params
