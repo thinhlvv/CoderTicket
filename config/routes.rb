@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'venues/new'
+
+  get 'venues/create'
+
   get 'def/create'
 
   root 'events#index'
@@ -10,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :sessions
+  resources :venues
   resources :events do
     resources :tickets
   end
