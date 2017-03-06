@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/signout' => 'sessions#destroy'
   post '/signin' => 'sessions#create'
   get '/signin' => 'sessions#signin'
+  put 'modify' => 'events#update'
 
   resources :users
   resources :sessions

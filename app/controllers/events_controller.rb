@@ -44,6 +44,17 @@ class EventsController < ApplicationController
     @venues = Venue.all
   end
 
+  def update
+    @event.name = params[:name]
+    @event.category_id = params[:category_id]
+    @event.venue_id = params[:venue_id]
+    @event.hero_image_url = params[:picture_url]
+    @event.starts_at = Time.strptime(params[:start_date], "%m/%d/%Y %H:%M %p")
+    @event.ends_at = Time.strptime(params[:end_date], "%m/%d/%Y %H:%M %p")
+    @event.extended_html_description = params[:content]
+    @event.update
+  end
+
   def publish
     @event = Event.find(params[:id])
     if !@event.ticket_types.nil?

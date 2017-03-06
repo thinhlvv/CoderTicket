@@ -1,8 +1,7 @@
 
-<h1> NEW EVENT </h1>
 <div id="main-form">
   <div id="form-div">
-    <form action='<%=events_path%>' method='put' id="form-one" class="form">
+      <form action="/events/<%= params[:id]%>/modify" method="put" id="form-one" class="form">
       <h2>Event</h2>
       <p class="name">
         <input name="name" value="<%=@event.name%>" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Name" id="name" required/>
